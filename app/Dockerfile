@@ -20,6 +20,7 @@ FROM scratch
 WORKDIR /app
 
 COPY --from=build /app .
+COPY src/templates templates
 
 ENTRYPOINT [ "./bin/frutimo" ]
 

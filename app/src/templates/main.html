@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function pageLoaded() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'info', true)
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            renderInfo(JSON.parse(this.responseText))
+          }
+        }
+        xhr.send()
+      }
+
+      function renderInfo(info) {
+        alert(info.name)
+      }
+    </script>
+    <title>Frutimo</title>
+  </head>
+  <body onload="pageLoaded()">
+    <h1>Frutimo</h1>
+  </body>
+</html>
