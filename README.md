@@ -1,0 +1,2 @@
+# frutimo
+Frutimo demo application
