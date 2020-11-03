@@ -9,6 +9,8 @@ ENV \
   CGO_ENABLED=0 \
   GOOS=linux
 
+RUN cat src/packages | tr $'\n' ' ' | xargs go get -d
+
 RUN go test ./...
 
 RUN go install -a -ldflags '-extldflags "-static"' ./...
@@ -20,3 +22,5 @@ WORKDIR /app
 COPY --from=build /app .
 
 ENTRYPOINT [ "./bin/frutimo" ]
+
+EXPOSE 80
