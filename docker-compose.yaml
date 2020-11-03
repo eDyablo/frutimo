@@ -1,8 +1,8 @@
 version: '3.0'
 services:
-  api:
-    container_name: api
-    build: api
+  app:
+    container_name: app
+    build: app
   db:
     container_name: db
     image: postgres
