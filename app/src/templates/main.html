@@ -2,7 +2,7 @@
 <html>
   <head>
     <script>
-      function pageLoaded() {
+      function bodyLoaded() {
         let xhr = new XMLHttpRequest();
         xhr.open('GET', 'info', true)
         xhr.onreadystatechange = function () {
@@ -14,12 +14,119 @@
       }
 
       function renderInfo(info) {
-        alert(info.name)
+        document.getElementById('logo').innerText = info.name
+        document.getElementsByTagName('body')[0].style.display = 'block'
       }
     </script>
+    <style>
+      .box {
+        /*border: 1px solid lightgray;*/
+        padding: 1pt;
+      }
+
+      .wide {
+        clear: both;
+      }
+
+      .half {
+        float: left;
+        box-sizing: border-box;
+        width: 50%;
+      }
+
+      .third {
+        float: left;
+        box-sizing: border-box;
+        width: 33.3%;
+      }
+
+      .quarter {
+        float: left;
+        box-sizing: border-box;
+        width: 25%;
+      }
+
+      .two-third {
+        float: left;
+        box-sizing: border-box;
+        width: 66.6%;
+      }
+
+      .three-quarter {
+        float: left;
+        box-sizing: border-box;
+        width: 75%;
+      }
+
+      .fifth {
+        float: left;
+        box-sizing: border-box;
+        width: 20%;
+      }
+
+      .two-fifth {
+        float: left;
+        box-sizing: border-box;
+        width: 40%;
+      }
+
+      .three-fifth {
+        float: left;
+        box-sizing: border-box;
+        width: 60%;
+      }
+
+      .four-fifth {
+        float: left;
+        box-sizing: border-box;
+        width: 80%;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+
+      #navbar {
+        background-color: black;
+        display: inline-block;
+        width: 100%;
+      }
+
+      #navbar div {
+        background-color: inherit;
+        color: white;
+      }
+    </style>
     <title>Frutimo</title>
   </head>
-  <body onload="pageLoaded()">
-    <h1>Frutimo</h1>
+  <body style="display:block;" onload="bodyLoaded()">
+    <div id="navbar" class="wide">
+      <div id="logo" class="fifth box">
+        Logo
+      </div>
+      <div class="four-fifth">
+        <div id="menubar" class="three-quarter">
+          Menu
+        </div>
+        <div class="quarter">
+          <div id="authcontrol" class="">
+            <div id="signin" class="half">Sign in</div>
+            <div id="signup" class="half">Sign up</div>
+          </div>
+          <div id="userinfo" class="">
+            <div id="username">User</div>
+            <div id="userstatus"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="workspace" class="wide">
+      <div id="singinform">
+      </div>
+      <div id="singupform">
+      </div>
+    </div>
   </body>
 </html>
